@@ -121,3 +121,6 @@ dmypy.json
 
 # django ckeditor
 /mysite/static/ckeditor/
+
+# django cache
+/mysite/django_cache/

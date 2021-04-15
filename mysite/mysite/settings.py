@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'ckeditor',
     'ckeditor_uploader',
+    'captcha',
     'news.apps.NewsConfig',
 ]
 
@@ -146,6 +147,7 @@ EMAIL_HOST_USER = ''  # username@mail.ru
 EMAIL_HOST_PASSWORD = ''  # password
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+# projectname\appname\views.py -> function name -> from username@mail.ru / to username@mail.ru
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
@@ -211,5 +213,16 @@ CKEDITOR_CONFIGS = {
             'dialogui',
             'elementspath'
         ]),
+    }
+}
+
+CAPTCHA_LETTER_ROTATION = None
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+CAPTCHA_NOISE_FUNCTIONS = None
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'django_cache'),
     }
 }
